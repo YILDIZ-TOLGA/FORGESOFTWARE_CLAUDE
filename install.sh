@@ -109,7 +109,7 @@ if skipped graphify; then record graphify IGNORÉ
 elif ! has uv; then record graphify "ÉCHEC (uv manquant)"
 else
   say "graphify — graphe de connaissances du projet"
-  if uv tool install --upgrade graphifyy >/dev/null 2>&1 && graphify install >/dev/null 2>&1; then
+  if uv tool install --upgrade 'graphifyy[mcp]' >/dev/null 2>&1 && graphify install >/dev/null 2>&1; then
     ok "$(graphify --version 2>/dev/null | tail -1)"; record graphify OK
   else
     err "graphify : échec (relancez : uv tool install graphifyy && graphify install)"; record graphify ÉCHEC

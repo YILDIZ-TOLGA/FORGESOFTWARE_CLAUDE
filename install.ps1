@@ -19,6 +19,7 @@ function Err($m)  { Write-Host "  [X]  $m" -ForegroundColor Red }
 function Has($c)  { [bool](Get-Command $c -ErrorAction SilentlyContinue) }
 function Skipped($n) { ($Skip -join ',').Split(',') -contains $n }
 function Refresh-Path {
+  if ($env:OS -ne 'Windows_NT') { return }
   $env:Path = [Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' +
               [Environment]::GetEnvironmentVariable('Path', 'User') + ';' +
               "$env:USERPROFILE\.local\bin"
@@ -101,7 +102,7 @@ if (Skipped 'graphify') { $Results['graphify'] = 'IGNORÉ' }
 elseif (-not (Has uv)) { $Results['graphify'] = 'ÉCHEC (uv manquant)' }
 else {
   Say 'graphify — graphe de connaissances du projet'
-  uv tool install --upgrade graphifyy *> $null
+  uv tool install --upgrade 'graphifyy[mcp]' *> $null
   Refresh-Path
   if ($LASTEXITCODE -eq 0 -and (Has graphify)) {
     graphify install --platform windows *> $null

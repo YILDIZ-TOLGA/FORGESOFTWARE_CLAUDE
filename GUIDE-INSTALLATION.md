@@ -10,6 +10,8 @@ Ce guide installe et configure 5 outils qui rendent Claude Code **moins cher, pl
 | **Agent Skills** | Compétences officielles Anthropic : PDF, Word, Excel, PowerPoint, création de skills, design… | Nouvelles capacités | Plugins Claude Code |
 | **OmniRoute** | Passerelle IA locale : un seul point d'accès vers des centaines de fournisseurs/modèles, avec bascule automatique | Continuer à coder quand une limite est atteinte, modèles moins chers | Serveur Node.js (optionnel) |
 
+> 🖥️ Vous utilisez l'**application Claude Desktop** ? Voir [GUIDE-DESKTOP.md](GUIDE-DESKTOP.md).
+>
 > Les quatre premiers s'ajoutent à Claude Code sans rien changer à votre abonnement.
 > OmniRoute est **optionnel** : il ne s'active que si vous lancez Claude Code via `omniroute launch`.
 
